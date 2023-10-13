@@ -1,0 +1,8 @@
+﻿  Timber.cpp
+Timber.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: virtual __cdecl sf::RenderWindow::~RenderWindow(void)" (__imp_??1RenderWindow@sf@@UEAA@XZ)
+Timber.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __cdecl sf::RenderWindow::RenderWindow(class sf::VideoMode,class sf::String const &,unsigned int,struct sf::ContextSettings const &)" (__imp_??0RenderWindow@sf@@QEAA@VVideoMode@1@AEBVString@1@IAEBUContextSettings@1@@Z)
+Timber.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: bool __cdecl sf::WindowBase::isOpen(void)const " (__imp_?isOpen@WindowBase@sf@@QEBA_NXZ)
+Timber.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __cdecl sf::String::String(char const *,class std::locale const &)" (__imp_??0String@sf@@QEAA@PEBDAEBVlocale@std@@@Z)
+Timber.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __cdecl sf::VideoMode::VideoMode(unsigned int,unsigned int,unsigned int)" (__imp_??0VideoMode@sf@@QEAA@III@Z)
+Timber.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __cdecl sf::String::~String(void)" (__imp_??1String@sf@@QEAA@XZ)
+C:\VS Projects\Timber\x64\Release\Timber.exe : fatal error LNK1120: 6 unresolved externals
