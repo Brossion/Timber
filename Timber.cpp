@@ -47,6 +47,19 @@ int main()
 	spriteTree.setTexture(textureTree);
 	spriteTree.setPosition(810, 0);
 
+	// Make some more tress for the environment
+	Texture textureTree2;
+	textureTree2.loadFromFile("graphics/tree2.png");
+	Sprite spriteTree2[4];
+	for (int i = 0; i < 4; i++)
+	{
+		spriteTree2[i].setTexture(textureTree2);		
+	}
+	spriteTree2[0].setPosition(20, -480);
+	spriteTree2[1].setPosition(340, -540);
+	spriteTree2[2].setPosition(1450, -440);
+	spriteTree2[3].setPosition(1700, -692);
+
 	// Prepare the bee
 	Texture textureBee;
 	textureBee.loadFromFile("graphics/bee.png");
@@ -111,6 +124,7 @@ int main()
 	int score = 0;
 
 	Text messageText;
+	Text tutorialText;
 	Text scoreText;
 
 	// Choosing a font
@@ -119,18 +133,22 @@ int main()
 
 	// Set the font to our message
 	messageText.setFont(font);
+	tutorialText.setFont(font);
 	scoreText.setFont(font);
 
 	// Assign the actual message
 	messageText.setString("Press Enter to start!");
+	tutorialText.setString("Press right and left arrow keys \n             to cut!!!");
 	scoreText.setString("Score = 0");
 
 	// Make it really big
 	messageText.setCharacterSize(75);
+	tutorialText.setCharacterSize(50);
 	scoreText.setCharacterSize(100);
 
 	// Choose a color
 	messageText.setFillColor(Color::White);
+	tutorialText.setFillColor(Color::White);
 	scoreText.setFillColor(Color::White);
 
 	// Position the text
@@ -142,6 +160,13 @@ int main()
 		textRect.height / 2.0f);
 
 	messageText.setPosition(1920 / 2.0f, 1080 / 2.0f);
+
+	tutorialText.setOrigin(textRect.left +
+		textRect.width / 2.0f,
+		textRect.top +
+		textRect.height / 2.0f);
+
+	tutorialText.setPosition(1920 / 2.0f, 1080 / 5.0f);
 	
 	scoreText.setPosition(20, 20);
 
@@ -315,6 +340,8 @@ int main()
 
 				acceptInput = false;
 
+				tutorialText.setString(" ");
+
 				// Play a chop sound
 				chop.play();
 			}
@@ -340,6 +367,8 @@ int main()
 				spriteLog.setPosition(810, 720);
 				logSpeedX = 5000;
 				logActive = true;
+
+				tutorialText.setString(" ");
 
 				acceptInput = false;
 
@@ -626,6 +655,12 @@ int main()
 		window.draw(spriteCloud2);
 		window.draw(spriteCloud3);
 
+		// Draw other trees for the environment
+		for (int i = 0; i < 4; i++)
+		{
+			window.draw(spriteTree2[i]);
+		}
+
 		// Draw the branches
 		for (int i = 0; i < NUM_BRANCHES; i++)
 		{
@@ -663,7 +698,10 @@ int main()
 		{
 			// Draw the timebar
 			window.draw(timeBar);
+			window.draw(tutorialText);
 		}
+
+		
 
 		// Show everything we just drew
 		window.display();
